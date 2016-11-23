@@ -5,7 +5,7 @@
  "scm": "https://github.com/favweb/konnektivity",
  "maintainer": "favweb@zoho.com",
  "description": "Konnektivity as a Service",
- "framework": false,
+ "framework": true,
  "tags": ["mesosphere", "service", "konnektivity"],
  "licenses": [
    {
