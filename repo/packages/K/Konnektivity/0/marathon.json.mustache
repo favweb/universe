@@ -1,6 +1,5 @@
 {
           "id": "/selfcare/web",
-          "dependencies": ["/selfcare/db"],
           "cmd": "python /PoCRANaaS-v2/PoCRANaaS/manage.py runserver 0.0.0.0:8000",
           "cpus": 0.2,
           "mem": 64,
@@ -28,9 +27,13 @@
             }
           },
           "env": {
-            "DB_1_PORT_3306_TCP_ADDR": "db.selfcare.marathon.mesos"
+            "DB_1_PORT_3306_TCP_ADDR": "db.selfcare.marathon.mesos",
+            "DB_ENABLE_RUN_NODE": "{{Run DB-Node.enable}}",
+            "DB_CPU_LIMIT_NODE": "{{Run DB-Node.cpu-limit}}",
+            "DB_MEM_LIMIT_NODE": "{{Run DB-Node.mem-limit}}",
           },
          "labels": {
-            "HAPROXY_GROUP": "external"
+            "HAPROXY_GROUP": "external",
+            "DCOS_PACKAGE_FRAMEWORK_NAME": "{{Framework Settings.framework-name}}"
          }
 }
