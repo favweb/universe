@@ -1,1 +1,20 @@
-
+{
+ "packagingVersion": "2.0",
+ "name": "Konnektivity as a Service",
+ "version": "0.0.1",
+ "scm": "https://github.com/favweb/konnektivity",
+ "maintainer": "favweb@zoho.com",
+ "description": "Konnektivity as a Service",
+ "framework": false,
+ "tags": ["mesosphere", "service", "konnektivity"],
+ "licenses": [
+   {
+     "name": "XXX",
+     "url": "http://konnektivity.io/topics/license"
+   }
+ ],
+ "website": "http://konnektivity.io",
+ "postInstallNotes": "Konnektivity installed!",
+ "preInstallNotes": "Read this message before installing please",
+ "postUninstallNotes": "Thank you for using Konnektivity"
+}
