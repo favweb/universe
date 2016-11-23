@@ -10,21 +10,7 @@
  "assets": {
    "container": {
      "docker": {
-       "97c52a0104c1": "orchestratorhaproxy_db"
-     }
-   }
- },
-  "images": {
-   "icon-small": "http://orig07.deviantart.net/a8f7/f/2011/214/d/0/mortal_kombat_logo_icon_by_mahesh69a-d42tu3x.png",
-   "icon-medium": "http://orig07.deviantart.net/a8f7/f/2011/214/d/0/mortal_kombat_logo_icon_by_mahesh69a-d42tu3x.png",
-   "icon-large": "http://orig07.deviantart.net/a8f7/f/2011/214/d/0/mortal_kombat_logo_icon_by_mahesh69a-d42tu3x.png",
-   "screenshots": [
-     "http://vignette3.wikia.nocookie.net/logopedia/images/0/0f/Mortal_kombat_logo.png"
-   ]
- },
- "assets": {
-   "container": {
-     "docker": {
+       "97c52a0104c1": "orchestratorhaproxy_db",
        "73b25abc5c14": "orchestratorhaproxyformesos_web"
      }
    }
