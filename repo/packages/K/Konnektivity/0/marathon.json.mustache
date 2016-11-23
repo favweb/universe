@@ -1,1 +1,93 @@
-
+{
+  "id" : "/selfcare",
+      "apps":[
+        {
+          "id": "/selfcare/web",
+          "dependencies": ["/selfcare/db"],
+          "cmd": "python /PoCRANaaS-v2/PoCRANaaS/manage.py runserver 0.0.0.0:8000",
+          "cpus": 0.2,
+          "mem": 64,
+          "instances": 1,
+          "healthChecks": [
+            {
+                "path": "/ihm",
+                "protocol": "HTTP",
+                "portIndex": 0,
+                "gracePeriodSeconds": 300,
+                "intervalSeconds": 60,
+                "timeoutSeconds": 20,
+                "maxConsecutiveFailures": 3,
+                "ignoreHttp1xx": false
+            }
+          ],
+          "container": {
+            "type": "DOCKER",
+            "docker": {
+              "image": "{{resource.assets.container.docker.73b25abc5c14}}",
+              "network": "BRIDGE",
+              "portMappings": [
+                { "containerPort": 8000, "hostPort": 0, "servicePort": 10015, "protocol": "tcp" }
+              ]
+            }
+          },
+          "env": {
+            "DB_1_PORT_3306_TCP_ADDR": "db.selfcare.marathon.mesos"
+          },
+         "labels": {
+            "HAPROXY_GROUP": "external"
+         }
+        },
+        {
+          "id": "/selfcare/db",
+          "instances": 1,
+          "cpus": 1,
+          "mem": 256,
+          "healthChecks": [
+            {
+              "protocol": "TCP",
+              "portIndex": 0,
+              "gracePeriodSeconds": 15,
+              "intervalSeconds": 10,
+              "timeoutSeconds": 5,
+              "maxConsecutiveFailures": 3
+            }
+          ],
+          "container": {
+            "type": "DOCKER",
+            "volumes": [
+              {
+                "containerPath": "mysqldata",
+                "mode": "RW",
+                "persistent": {
+                "size": 1000
+                }
+              },
+              {
+                "containerPath": "/var/lib/mysql",
+                "hostPath": "mysqldata",
+                "mode": "RW"
+              }
+            ],
+            "docker": {
+              "image": "{{resource.assets.container.docker.97c52a0104c1}}",
+              "network": "BRIDGE",
+              "parameters": [
+                { "key": "name", "value": "db" }
+              ],
+              "portMappings": [
+                {
+                  "containerPort": 3306,
+                  "hostPort": 3306,
+                  "servicePort": 3306,
+                  "protocol": "tcp"
+                }
+              ]
+            }
+          },
+          "upgradeStrategy": {
+            "minimumHealthCapacity": 0,
+            "maximumOverCapacity": 0
+          }
+        }
+        ]
+}
