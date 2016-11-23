@@ -13,8 +13,8 @@
      "url": "http://konnektivity.io/topics/license"
    }
  ],
- "website": "http://konnektivity.io",
- "postInstallNotes": "Konnektivity installed!",
+ "website": "http://kaas.io",
+ "postInstallNotes": "Konnektivity as a Service installed!",
  "preInstallNotes": "Read this message before installing please",
- "postUninstallNotes": "Thank you for using Konnektivity"
+ "postUninstallNotes": "Thank you for using KaaS"
 }
